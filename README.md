@@ -30,10 +30,10 @@ Python es un lenguaje de programación interpretado, fácil de aprender, con una
 
 ### Instalación
 - Windows/macOS: [Descargar desde python.org](https://www.python.org/downloads/)
-- Linux:  
-  ```bash
-  sudo apt install python3
-  ```
+- Linux:
+```bash
+sudo apt install python3
+```
 
 ### Tu primer script
 ```python
@@ -49,27 +49,22 @@ nombre = "Ana"         # Cadena
 edad = 30              # Entero
 altura = 1.65          # Float
 es_estudiante = True   # Booleano
-```
 
-- Usa `type()` para ver el tipo de dato.
+print(f"{nombre} tiene {edad} años y mide {altura}m")
+```
 
 ---
 
 ## 3. Operadores
 
-### Aritméticos
 ```python
-x + y, x - y, x * y, x / y, x % y, x ** y, x // y
-```
+x = 10
+y = 3
 
-### Comparación
-```python
-x == y, x != y, x > y, x < y
-```
-
-### Lógicos
-```python
-and, or, not
+print(x + y)  # Suma
+print(x % y)  # Módulo
+print(x > y)  # Comparación
+print(x > 5 and y < 5)  # Lógico
 ```
 
 ---
@@ -77,6 +72,8 @@ and, or, not
 ## 4. Condicionales
 
 ```python
+edad = 20
+
 if edad >= 18:
     print("Mayor de edad")
 elif edad > 12:
@@ -91,16 +88,16 @@ else:
 
 ### while
 ```python
-i = 0
-while i < 5:
-    print(i)
+i = 1
+while i <= 5:
+    print(f"Iteración {i}")
     i += 1
 ```
 
 ### for
 ```python
-for letra in "Python":
-    print(letra)
+for numero in range(1, 6):
+    print(f"Número: {numero}")
 ```
 
 ---
@@ -108,10 +105,11 @@ for letra in "Python":
 ## 6. Funciones
 
 ```python
-def saludar(nombre):
-    print(f"Hola, {nombre}")
+def multiplicar(a, b):
+    return a * b
 
-saludar("Carlos")
+resultado = multiplicar(4, 5)
+print("Resultado:", resultado)
 ```
 
 ---
@@ -121,16 +119,20 @@ saludar("Carlos")
 ### Listas
 ```python
 frutas = ["manzana", "banana", "uva"]
+frutas.append("naranja")
+print(frutas[1])
 ```
 
 ### Tuplas
 ```python
-punto = (4, 5)
+punto = (10, 20)
+print("X:", punto[0])
 ```
 
 ### Diccionarios
 ```python
 persona = {"nombre": "Luis", "edad": 25}
+print(persona["nombre"])
 ```
 
 ---
@@ -139,9 +141,10 @@ persona = {"nombre": "Luis", "edad": 25}
 
 ```python
 try:
-    resultado = 10 / 0
-except ZeroDivisionError:
-    print("No se puede dividir por cero")
+    numero = int(input("Introduce un número: "))
+    print("Tu número es", numero)
+except ValueError:
+    print("Eso no es un número válido")
 ```
 
 ---
@@ -149,11 +152,10 @@ except ZeroDivisionError:
 ## 9. Módulos y paquetes
 
 ```python
-import math
-print(math.sqrt(16))
-```
+import random
 
-También puedes crear tus propios módulos guardando funciones en archivos `.py`.
+print("Número aleatorio:", random.randint(1, 100))
+```
 
 ---
 
@@ -161,12 +163,13 @@ También puedes crear tus propios módulos guardando funciones en archivos `.py`
 
 ```python
 # Escritura
-with open("archivo.txt", "w") as f:
-    f.write("Hola, archivo")
+with open("datos.txt", "w") as f:
+    f.write("Línea 1\nLínea 2")
 
 # Lectura
-with open("archivo.txt", "r") as f:
-    print(f.read())
+with open("datos.txt", "r") as f:
+    for linea in f:
+        print(linea.strip())
 ```
 
 ---
@@ -174,15 +177,16 @@ with open("archivo.txt", "r") as f:
 ## 11. Programación orientada a objetos
 
 ```python
-class Persona:
-    def __init__(self, nombre):
-        self.nombre = nombre
+class Coche:
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
 
-    def saludar(self):
-        print(f"Hola, soy {self.nombre}")
+    def describir(self):
+        return f"{self.marca} {self.modelo}"
 
-p = Persona("Lucía")
-p.saludar()
+mi_coche = Coche("Toyota", "Corolla")
+print(mi_coche.describir())
 ```
 
 ---
@@ -191,27 +195,28 @@ p.saludar()
 
 ### Generadores
 ```python
-def contador():
-    i = 0
-    while True:
-        yield i
-        i += 1
+def cuenta_regresiva(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+for numero in cuenta_regresiva(3):
+    print(numero)
 ```
 
 ### Decoradores
 ```python
-def decorador(func):
-    def wrapper():
-        print("Antes de la función")
-        func()
-        print("Después de la función")
-    return wrapper
+def mayusculas(func):
+    def envoltura():
+        resultado = func()
+        return resultado.upper()
+    return envoltura
 
-@decorador
-def saludo():
-    print("Hola")
+@mayusculas
+def saludar():
+    return "buenos días"
 
-saludo()
+print(saludar())
 ```
 
 ---
@@ -221,10 +226,27 @@ saludo()
 ✅ Puedes crear una carpeta `proyectos/` con estos ejemplos prácticos:
 
 - 🧮 **Calculadora en consola**
-- 📁 **Gestor de tareas con archivos**
-- 💸 **App de gastos personales (con JSON)**
+```python
+def calcular():
+    a = float(input("Número 1: "))
+    b = float(input("Número 2: "))
+    print("Suma:", a + b)
+
+calcular()
+```
+
 - 🧠 **Juego de adivinar el número**
-- 🌐 **API REST básica con Flask**
+```python
+import random
+
+numero_secreto = random.randint(1, 10)
+intento = int(input("Adivina el número (1-10): "))
+
+if intento == numero_secreto:
+    print("¡Correcto!")
+else:
+    print("Incorrecto, era", numero_secreto)
+```
 
 ---
 
@@ -243,4 +265,4 @@ saludo()
 ---
 
 📄 **Licencia:** MIT  
-✍️ Creado por Nando-Asir
+✍️ Creado por [Tu Nombre o Usuario de GitHub]
