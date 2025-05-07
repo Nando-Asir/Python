@@ -280,4 +280,4 @@ else:
 ---
 
 📄 **Licencia:** MIT  
-✍️ Creado por [Nando-Asir]
+✍️ Creado por Nando-Asir
