@@ -276,6 +276,7 @@ else:
 - [Documentación oficial de Python](https://docs.python.org/es/3/)
 - [W3Schools Python](https://www.w3schools.com/python/)
 - [Real Python](https://realpython.com/)
+- [Tutorial Python en Español](https://docs.python.org/es/3.13/tutorial/index.html)
 
 ---
 
