@@ -57,6 +57,21 @@ print(f"{nombre} tiene {edad} años y mide {altura}m")
 
 ## 3. Operadores
 
+### Aritméticos
+```python
+x + y, x - y, x * y, x / y, x % y, x ** y, x // y
+```
+
+### Comparación
+```python
+x == y, x != y, x > y, x < y
+```
+
+### Lógicos
+```python
+and, or, not
+```
+### Ejemplo
 ```python
 x = 10
 y = 3
@@ -157,6 +172,8 @@ import random
 print("Número aleatorio:", random.randint(1, 100))
 ```
 
+También puedes crear tus propios módulos guardando funciones en archivos `.py`.
+
 ---
 
 ## 10. Lectura y escritura de archivos
@@ -223,8 +240,6 @@ print(saludar())
 
 ## 13. Proyectos prácticos
 
-✅ Puedes crear una carpeta `proyectos/` con estos ejemplos prácticos:
-
 - 🧮 **Calculadora en consola**
 ```python
 def calcular():
@@ -265,4 +280,4 @@ else:
 ---
 
 📄 **Licencia:** MIT  
-✍️ Creado por [Tu Nombre o Usuario de GitHub]
+✍️ Creado por [Nando-Asir]
